@@ -7,19 +7,19 @@
     box-sizing: border-box;
 }
 body {
-padding-top: 60px;
+    padding-top: 60px;
 }
 section {
-overflow: auto;
+    overflow: auto;
 }
 textarea {
-resize: vertical;
+    resize: vertical;
 } 
 .center {
-text-align: center;
+    text-align: center;
 } 
 .center h1 {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
@@ -62,11 +62,11 @@ footer {
     margin-top: 45px;
     padding-top: 5px;
     border-top: 1px solid #eaeaea;
-    color: #777;
+    color: rgb(156, 20, 20);
     a {
-    color: #555;
+    color: rgb(156, 20, 20);
     &:hover {
-    color: #222;
+    color: rgb(19, 151, 52);
     }
     }
     small {
@@ -131,44 +131,50 @@ margin-top: 0px;
 }
 } 
 .gravatar {
-float: left;
-margin-right: 10px;
+    float: left;
+    margin-right: 10px;
 } 
 .gravatar_edit {
-margin-top: 15px;
+    margin-top: 15px;
 }
 /* forms */
 input, textarea, select, .uneditable-input {
-border: 1px solid #bbb;
-width: 100%;
-margin-bottom: 15px;
-@include box_sizing;
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+    @include box_sizing;
 }
 input {
-height: auto !important;
+    height: auto !important;
 }
 #error_explanation {
     color: red;
 ul {
 color: red;
-margin: 0 0 30px 0;
+    margin: 0 0 30px 0;
 }
 } 
 .field_with_errors {
-@extend .has-error;
-.form-control {
-color: $state-danger-text;
-}
+    @extend .has-error;
+    .form-control {
+    color: $state-danger-text;
+    }
 }
 .checkbox {
     margin-top: -10px;
-margin-bottom: 10px;
-span {
-margin-left: 20px;
-font-weight: normal;
-}
+    margin-bottom: 10px;
+    span {
+        margin-left: 20px;
+        font-weight: normal;
+    }
 } 
 #session_remember_me {
     width: auto;
     margin-left: 0;
+}
+.btn .btn-lg .btn-primary{
+    color: red;
+}
+.x{
+    color: red !important;
 }
