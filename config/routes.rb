@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'password_resets/new'
+  get 'password_resets/edit'
   get 'sessions/new'
   resources :microposts
   resources :users
@@ -12,4 +14,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   resources :account_activations, only: [:edit]
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :articles, only: [:create, :destroy]
 end
