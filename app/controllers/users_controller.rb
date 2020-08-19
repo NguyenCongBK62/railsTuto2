@@ -7,14 +7,25 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    redirect_to root_url and return unless current_user?(@user)
+      @user = User.find(params[:id])
+      @articles = @user.articles.paginate(page: params[:page])
   end
 
   def new
     @user = User.new
   end
-
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render 'show_follow'
+  end
   def create
     @user = User.new(user_params)
     if @user.save
@@ -48,17 +59,10 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
     :password_confirmation)
   end
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = "Please log in."
-      redirect_to login_url
-    end
-
-    def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_url) unless current_user?(@user)
-    end
+  
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
   # Confirms an admin user.
   def admin_user
