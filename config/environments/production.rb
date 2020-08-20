@@ -24,6 +24,8 @@ Rails.application.configure do
     :domain => 'heroku.com',
     :enable_starttls_auto => true
   }
+  # Store uploaded files on Amazon AWS.
+  config.active_storage.service = :amazon
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
